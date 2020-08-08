@@ -7,6 +7,7 @@ const client = new faunadb.Client({ secret })
 
 module.exports = async (req, res) => {
   try {
+    console.log(`${req.method} ${req.url}`)
     const dbs = await client.query(
       q.Map(
         // iterate each item in result
@@ -20,6 +21,7 @@ module.exports = async (req, res) => {
         ref => q.Get(ref) // lookup each result by its reference
       )
     )
+    console.log(`client: ${client}`)
     // ok
     res.status(200).json(dbs.data)
   } catch (e) {
