@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
         ref => q.Get(ref) // lookup each result by its reference
       )
     )
-    console.log(`client: ${client}`)
+    console.log('client:', client)
     // ok
     res.status(200).json(dbs.data)
   } catch (e) {
