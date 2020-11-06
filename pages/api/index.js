@@ -25,6 +25,7 @@ module.exports = async (req, res) => {
     )
     console.log(`db time: ${timer.ms}ms`)
     console.log('dbs:', dbs)
+    console.log('fauna client:', client)
     // ok
     res.status(200).json(dbs.data)
   } catch (e) {
